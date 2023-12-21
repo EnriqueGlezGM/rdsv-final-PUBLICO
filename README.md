@@ -1,7 +1,4 @@
 # RDSV-Final
-**Grupo conformado por: [Roberto Martin Luengo](https://github.com/roberm22), [Mattin Antartiko Elorza Forcada](https://github.com/mattinelorza), y [Enrique González Macías](https://github.com/EnriqueGlezGM).**
-
-
 
 En esta práctica, se va a profundizar en las funciones de red virtualizadas (VNF) y su orquestación, aplicadas al caso de un servicio SD-WAN ofrecido por un proveedor de telecomunicaciones. El escenario que se va a utilizar está inspirado en la reconversión de las centrales de proximidad a centros de datos que permiten, entre otras cosas, reemplazar servicios de red ofrecidos mediante hardware específico y propietario por servicios de red definidos por software sobre hardware de propósito general. Las funciones de red que se despliegan en estas centrales se gestionan mediante una plataforma de orquestación como OSM o XOS.
 
@@ -13,6 +10,12 @@ En el caso que se trata, se trata de un ampliación de esta práctica con el obj
 - añadir servicios adicionales
 
 Más información en [recomendaciones](https://github.com/educaredes/sdedge-ns/blob/main/doc/rdsv-final.md).
+
+
+## Instalación (SOLO SI ES UN REPOSITORIO PRIVADO)
+
+Al tratarse de un repositorio privado es necesario verificar la identidad. Solo es necesario hacerlo una unica vez.
+La guia oficial para [generar una nueva clave SSH](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) y [agregar una clave SSH y usarla para la autenticación](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account).
 
 
 ## Preparación del entorno
@@ -66,6 +69,29 @@ $HOME/shared/rdsv-final/bin/sdw-knf-consoles open $NSID2
 
 ```
 
+## Orden de ejecución - Escenario 1: Switches brwan Flowmanager [sin QoS]
+Se indica el orden de ejecución de los scripts:
+```bash
+cd $HOME/shared/rdsv-final
+$HOME/shared/rdsv-final/sdwan1.sh
+$HOME/shared/rdsv-final/sdwan2.sh
+$HOME/shared/rdsv-final/brwan_config_sede1.sh
+$HOME/shared/rdsv-final/brwan_config_sede2.sh
+
+```
+
+## Orden de ejecución - Escenario 2: Switches brwan QoS Simple Switch [con QoS]
+Se indica el orden de ejecución de los scripts. Se parte del escenario anterior, aunque existe la opción de unicamente ejecutar este escenario haciendo uso de start sdwan qos.
+```bash
+cd $HOME/shared/rdsv-final
+$HOME/shared/rdsv-final/killer.sh
+$HOME/shared/rdsv-final/qos_brwan_config_sede1.sh
+$HOME/shared/rdsv-final/qos_brwan_config_sede2.sh
+$HOME/shared/rdsv-final/qos_sede1.sh
+$HOME/shared/rdsv-final/qos_sede2.sh
+
+```
+
 ## Posibles problemas de ejecución
 Que los enlaces ya estan creados, para ello es necesario elimiarlos mediante:
 ```bash
@@ -80,4 +106,3 @@ sudo ovs-vsctl list-br
 ```
 
 Que las KNFs/NSs ya estan en ejecución. Para eso acceder a [OSM](http://10.11.13.1/) y eliminar las instancias de las NSs.
-
