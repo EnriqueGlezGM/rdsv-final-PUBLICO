@@ -44,7 +44,7 @@ $HOME/shared/rdsv-final/start.sh
 ```
 
 ## Configurar sedes
-Se abrira de nuevo otra terminal donde es necesario ejecutar lo siguiente para configurar las sedes:
+Se abrira de nuevo otra terminal donde es necesario ejecutar lo siguiente para configurar las sedes, pero tienen que estar los dos NS lanzados de en estado READY antes de ejecutarlo:
 ```bash
 cd $HOME/shared/rdsv-final
 $HOME/shared/rdsv-final/sdedge1.sh
