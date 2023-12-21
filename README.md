@@ -12,22 +12,7 @@ En el caso que se trata, se trata de un ampliación de esta práctica con el obj
 Más información en [recomendaciones](https://github.com/educaredes/sdedge-ns/blob/main/doc/rdsv-final.md).
 
 
-## Instalación (SOLO SI ES UN REPOSITORIO PRIVADO)
 
-Al tratarse de un repositorio privado es necesario verificar la identidad. Solo es necesario hacerlo una unica vez.
-La guia oficial para [generar una nueva clave SSH](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key) y [agregar una clave SSH y usarla para la autenticación](https://docs.github.com/es/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account).
-
-
-## Preparación del entorno
-Con las credenciales correctamente configuradas, clonar repositorio y arrancar la MV:
-```bash
-cd $HOME/shared
-git clone git@github.com:EnriqueGlezGM/rdsv-final.git
-rdsv-final/bin/get-osmlab-k8s
-echo 'Los siguientes comandos en la MV'
-
-```
-**¡ATENCION! El resto de la práctica se realiza sobre la máquina virtual.**
 
 Primero se inicializa el tunel, y luego se configura el entorno para acceder a OSM:
 ```bash
